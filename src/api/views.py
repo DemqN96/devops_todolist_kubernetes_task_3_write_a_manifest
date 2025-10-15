@@ -58,10 +58,8 @@ class TodoViewSet(viewsets.ModelViewSet):
         serializer.save(creator=creator)
 
 def liveness_check(request):
-    return JsonResponse({"status": "alive", "timestamp": time.time()})
-def health_check():
-   return Response("Healthy", status=200)
-
+    return HttpResponse("Healthy", status=200)
+    
 def readiness_check():  
    if time.time() < start_time + startup_period:       
        return Response("Not Ready", status=503)

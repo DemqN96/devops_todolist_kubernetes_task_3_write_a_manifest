@@ -10,6 +10,6 @@ COPY src/ .
 
 RUN python manage.py migrate
 
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8080"]
+CMD ["sh", "-c", "python src/manage.py migrate --noinput && python src/manage.py runserver 0.0.0.0:8080"]
 
 EXPOSE 8080
