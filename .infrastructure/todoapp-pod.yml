@@ -14,11 +14,13 @@ spec:
       livenessProbe:
         httpGet:
           path: /api/liveness/
+          path: /api/liveness/
           port: 8080
         initialDelaySeconds: 60
         periodSeconds: 5
       readinessProbe:
         httpGet:
+          path: /api/readiness/
           path: /api/readiness/
           port: 8080
         initialDelaySeconds: 5
